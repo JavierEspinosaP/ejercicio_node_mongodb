@@ -1,41 +1,38 @@
 const mongoose = require('mongoose');
-const providers = require('./providers')
+/*
+_id
+company_name
+CIF
+address
+url_web
+*/
 
 const objectSchema = {
-    id: { 
-        type: Number, 
-        required: true,
-        unique: true
-    },
-    title: { 
+    
+    company_name: { 
         type: String, 
         required: true 
     },
-    price: { 
+    CIF: { 
         type: Number, 
         required: true 
     },
-    description: { 
+    address: { 
         type: String, 
         required: true 
     },
-    image:{
+    url_web:{
         type: String,
-        validate: {
-            validator: function(url){
-                return url.indexOf('.jpg') != -1;
-            }, 
-            message: "Porfa, sólo imágenes JPG"
-        }
-    },
-    provider:[{type: mongoose.Schema.Types.ObjectId, ref: providers}]
+        required: true
+    }
 };
 // Crear el esquema
-const productSchema = mongoose.Schema(objectSchema);
+const providerSchema = mongoose.Schema(objectSchema);
 // Crear el modelo --> Colección
-const Product = mongoose.model('products', productSchema);
+const Provider = mongoose.model('providers', providerSchema);
 
-module.exports = Product;
+module.exports = Provider;
+
 
 //insertar un producto
 

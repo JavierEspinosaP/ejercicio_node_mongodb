@@ -6,7 +6,6 @@ const pool = new Pool({
   password: 'Postgre1991'
 })
 
-
 pool.connect((err, client, release) => {
   if (err) {
     return console.error('Error acquiring client', err.stack)

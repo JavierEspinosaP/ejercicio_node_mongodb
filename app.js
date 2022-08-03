@@ -16,7 +16,7 @@ const productsApiRouter = require('./routes/productsApiRoutes')
 const manage404 = require('./middlewares/error404')
 
 const app = express()
-const port = 3005
+const port = 3000
 
 //Permite leer body recibido en una petición
 app.use(express.json())
@@ -24,6 +24,7 @@ app.use(express.json())
 
 //API
 app.use('/api/products', productsApiRouter)
+
 
 
 //Middleware error 404
