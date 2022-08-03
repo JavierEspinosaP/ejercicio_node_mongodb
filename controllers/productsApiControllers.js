@@ -6,7 +6,6 @@ const getProduct = async (req, res) => {
             if (req.params.id) { //FIND BY ID
                 try {
                     let product =  await Product.findOne({id:req.params.id},'title price id -_id')
-                    .populate('provider')
                     res.status(200).json(product);
                 }
                 catch (error) {

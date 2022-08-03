@@ -28,7 +28,7 @@ const objectSchema = {
             message: "Porfa, sólo imágenes JPG"
         }
     },
-    provider:[{type: mongoose.Schema.Types.ObjectId, ref: providers}]
+    provider:[{type: mongoose.Schema.Types.ObjectId, ref: 'providers'}]
 };
 // Crear el esquema
 const productSchema = mongoose.Schema(objectSchema);
