@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const providers = require('./providers')
 
 const objectSchema = {
     id: { 
@@ -28,12 +27,12 @@ const objectSchema = {
             message: "Porfa, sólo imágenes JPG"
         }
     },
-    provider:[{type: mongoose.Schema.Types.ObjectId, ref: 'providers'}]
+    provider:[{type: mongoose.Schema.Types.ObjectId, ref: 'Provider'}]
 };
 // Crear el esquema
 const productSchema = mongoose.Schema(objectSchema);
 // Crear el modelo --> Colección
-const Product = mongoose.model('products', productSchema);
+const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
 

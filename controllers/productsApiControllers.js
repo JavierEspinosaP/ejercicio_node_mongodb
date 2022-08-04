@@ -6,6 +6,7 @@ const getProduct = async (req, res) => {
             if (req.params.id) { //FIND BY ID
                 try {
                     let product =  await Product.findOne({id:req.params.id},'title price id -_id')
+                    
                     res.status(200).json(product);
                 }
                 catch (error) {
@@ -14,8 +15,8 @@ const getProduct = async (req, res) => {
                 }
             } else { //FIND ALL
                 try {
-                    let products =  await Product.find({}); // []
-                    
+                    let products =  await Product.find({}, '-_id -__v')
+                    .populate('provider', 'company_name cif address -_id')
                     res.status(200).json({products});
                 }
                 catch (error) {
